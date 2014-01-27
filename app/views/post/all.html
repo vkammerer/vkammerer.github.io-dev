@@ -1,0 +1,9 @@
+<h2>All posts</h2>
+
+<ul class="list-group">
+	<li ng-repeat="post in posts | orderBy:'name'" class="list-group-item clearfix">
+		<a ng-href="/#/posts/{{post.ID}}">
+			{{post.title}}
+		</a>
+	</li>
+</ul>
