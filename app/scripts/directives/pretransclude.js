@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwApp')
+angular.module('vincentkammerercomApp')
 	.directive('pre', [
 		function (
 		){
@@ -10,8 +10,9 @@ angular.module('wwwApp')
 				},
 				link: function(scope, element, attrs) {
 					if (element.hasClass('transclude')) {
-						element.replaceWith(element[0].innerText)
+						element.replaceWith(element[0].innerText);
 					}
 				}
 			};
-	}]);
+		}
+	]);

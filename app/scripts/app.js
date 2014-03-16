@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('wwwApp', [
-	'ngCookies',
+angular.module('vincentkammerercomApp', [
 	'ngSanitize',
 	'ngRoute',
 	'ngResource',
@@ -23,34 +22,43 @@ angular.module('wwwApp', [
 				templateUrl: 'views/home.html',
 				controller: 'HomeCtrl'
 			})
-			.when('/posts', {
+			.when('/experiments', {
+				templateUrl: 'views/experiments/all.html',
+				controller: 'ExperimentsCtrl'
+			})
+			.when('/blog', {
 				templateUrl: 'views/post/all.html',
 				controller: 'PostListCtrl'
 			})
-			.when('/posts/:postId', {
+			.when('/posts/:postSlug', {
 				templateUrl: 'views/post/show.html',
 				controller: 'PostShowCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
 			});
-	}])
+	}
+])
 .run([
 	'$rootScope',
+	'$window',
 	'constants',
 	'Post',
 	function(
 		$rootScope,
+		$window,
 		constants,
 		Post
 	){
 
-		if (!$rootScope.posts) {
-			Post.then(function(posts){
-				$rootScope.posts = posts;
-			})
-		}
+		$window.VK = {};
+
+		$rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+			$rootScope.navshown = false;
+		});
+
 		$rootScope.constants = constants;
+		$rootScope.breadcrumb = '';
 
 	}
 ]);

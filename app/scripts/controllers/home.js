@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwApp')
+angular.module('vincentkammerercomApp')
 	.controller('HomeCtrl', [
 		'$rootScope',
 		'$scope',
@@ -8,6 +8,8 @@ angular.module('wwwApp')
 			$rootScope,
 			$scope
 		){
+
+			$rootScope.breadcrumb = 'Home';
 
 		}
 	]);

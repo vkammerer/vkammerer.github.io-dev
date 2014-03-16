@@ -21,6 +21,7 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: {
       // configurable paths
+			name: require('./bower.json').name + 'App',
       app: require('./bower.json').appPath || 'app',
       dist: 'dist'
     },
@@ -62,7 +63,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
       livereload: {
@@ -176,7 +177,7 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+//            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -274,8 +275,9 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'bower_components/**/*',
-            'images/{,*/}*.{webp}',
+            'images/{,*/}*.{webp,png}',
             'fonts/*',
+            'CNAME',
             'README.md'
           ]
         }, {
@@ -333,6 +335,18 @@ module.exports = function (grunt) {
     // concat: {
     //   dist: {}
     // },
+		ngtemplates: {
+			dist: {
+				src: '<%= yeoman.app %>/views/**/*.html',
+				dest: '.tmp/scripts/templateCache.js',
+				options: {
+					base: '<%= yeoman.app %>',
+					usemin: '<%= yeoman.dist %>/scripts/scripts.js',
+					module: '<%= yeoman.name %>',
+					url:    function(url) { return url.replace('app/', ''); }
+				}
+			}
+		},
 
     // Test settings
     karma: {
@@ -375,6 +389,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
+		'ngtemplates:dist',
     'autoprefixer',
     'concat',
     'ngmin',

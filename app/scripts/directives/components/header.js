@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('wwwApp')
-	.directive('navigation', [
+angular.module('vincentkammerercomApp')
+	.directive('header', [
 		'$rootScope',
 		'$http',
 		'$location',
@@ -11,7 +11,7 @@ angular.module('wwwApp')
 			$location
 		){
 			return {
-				templateUrl: 'views/navigation.html',
+				templateUrl: 'views/components/header.html',
 				restrict: 'E',
 				controller : function($scope){
 				},

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwApp')
+angular.module('vincentkammerercomApp')
 	.filter('filterByParamId', function() {
 		return function(input, param, id) {
 			var toReturn = [];
@@ -14,7 +14,21 @@ angular.module('wwwApp')
 		};
 	});
 
-angular.module('wwwApp')
+angular.module('vincentkammerercomApp')
+	.filter('filterByParamVal', function() {
+		return function(input, param, val) {
+			var toReturn = [];
+			var i=0, len=input.length;
+			for (; i<len; i++) {
+				if (input[i][param] === val) {
+					toReturn.push(input[i]);
+				}
+			}
+			return toReturn;
+		};
+	});
+
+angular.module('vincentkammerercomApp')
 	.filter('getById', function() {
 		return function(input, id) {
 			var i=0, len=input.length;
@@ -26,3 +40,32 @@ angular.module('wwwApp')
 			return null;
 		};
 	});
+
+angular.module('vincentkammerercomApp')
+	.filter('hasWordpressCategory', function() {
+		return function(input, category) {
+			var toReturn = [];
+			var i=0, len=input.length;
+			for (; i<len; i++) {
+				if (input[i].categories.indexOf(category) !== -1) {
+					toReturn.push(input[i]);
+				}
+			}
+			return toReturn;
+		};
+	});
+
+angular.module('vincentkammerercomApp')
+	.filter('hasWordpressTag', function() {
+		return function(input, tag) {
+			var toReturn = [];
+			var i=0, len=input.length;
+			for (; i<len; i++) {
+				if (input[i].tags.indexOf(tag) !== -1) {
+					toReturn.push(input[i]);
+				}
+			}
+			return toReturn;
+		};
+	});
+

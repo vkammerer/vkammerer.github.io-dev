@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwApp')
+angular.module('vincentkammerercomApp')
 	.controller('PostShowCtrl', [
 		'Post',
 		'$scope',
@@ -15,15 +15,13 @@ angular.module('wwwApp')
 			$routeParams
 		){
 
-			var postId = $routeParams.postId || "";
+			var postSlug = $routeParams.postSlug || "";
 
-			if (!$rootScope.posts) {
-				Post.then(function(posts){
-					$scope.post = $filter('getById')(posts, postId);
-				})
-			}
-			else {
-				$scope.post = $filter('getById')($rootScope.posts, postId);
-			}
+			Post.then(function(){
+				if (postSlug) {
+					$scope.post = $filter('filterByParamVal')($rootScope.posts, 'slug' , postSlug)[0];
+					$rootScope.breadcrumb = $scope.post.title;
+				}
+			})
 
 	}]);

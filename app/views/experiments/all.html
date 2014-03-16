@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="vkcontent">
+			<div class="btn-group btn-group-justified">
+					<a class="btn btn-default" ng-class="{active:$root.background==='pixi'}" ng-click="$root.background= ($root.background==='pixi') ? '' : 'pixi'">Pixi</a>
+					<a class="btn btn-default" ng-class="{active:experiment==='phaser'}" ng-click="experiment= (experiment!=='phaser') ? 'phaser' : ''">Phaser</a>
+					<a class="btn btn-default" ng-class="{active:experiment==='three'}" ng-click="experiment= (experiment!=='three') ? 'three' : ''">Three</a>
+			</div>
+			<br>
+			<phaser ng-if="experiment==='phaser'"></phaser>
+			<three ng-if="experiment==='three'"></three>
+		</div>
+	</div>
+</div>

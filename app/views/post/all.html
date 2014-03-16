@@ -1,9 +1,13 @@
-<h2>All posts</h2>
-
-<ul class="list-group">
-	<li ng-repeat="post in posts | orderBy:'name'" class="list-group-item clearfix">
-		<a ng-href="/#/posts/{{post.ID}}">
-			{{post.title}}
-		</a>
-	</li>
-</ul>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="vkcontent">
+			<ul class="list-group">
+				<li ng-repeat="post in posts |  filter:{categories:'blog'}" class="list-group-item clearfix">
+					<a ng-href="/#/posts/{{post.slug}}">
+						{{post.title}}
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

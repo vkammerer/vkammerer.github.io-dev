@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwApp')
+angular.module('vincentkammerercomApp')
 	.factory('constants', function () {
 
 		var toReturn = {};

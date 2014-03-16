@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwApp')
+angular.module('vincentkammerercomApp')
 	.controller('PostListCtrl', [
 		'Post',
 		'$scope',
@@ -10,11 +10,5 @@ angular.module('wwwApp')
 			$scope,
 			$rootScope
 		){
-
-			if (!$rootScope.posts) {
-				Post.then(function(posts){
-					$rootScope.posts = posts;
-				})
-			}
-
+			$rootScope.breadcrumb = 'Blog';
 	}]);
