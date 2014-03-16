@@ -10,6 +10,7 @@
 		<meta name="description" content="I hunt milliseconds">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="icon" type="image/png" href="images/vincentkammerercom/favicon.png" />
 		<!-- build:css({.tmp,app}) styles/main.css -->
 		<link rel="stylesheet" href="styles/main.css">
 		<!-- endbuild -->
@@ -53,30 +54,35 @@
 		<!-- endbuild -->
 
 		<!-- build:js({.tmp,app}) scripts/scripts.js -->
-		<script src="scripts/app.js"></script>
+		<script src="scripts/main.js"></script>
 
-		<script src="scripts/services/constants.js"></script>
-		<script src="scripts/services/utils.js"></script>
-		<script src="scripts/services/smicons.js"></script>
-		<script src="scripts/services/post.js"></script>
-		<script src="scripts/services/experiments.js"></script>
+		<script src="scripts/utils/services/connection.js"></script>
+		<script src="scripts/utils/services/utils.js"></script>
+		<script src="scripts/utils/directives/dynamic.js"></script>
+		<script src="scripts/utils/directives/pretransclude.js"></script>
 
-		<script src="scripts/directives/dynamic.js"></script>
-		<script src="scripts/directives/pretransclude.js"></script>
-		<script src="scripts/directives/components/header.js"></script>
-		<script src="scripts/directives/components/breadcrumb.js"></script>
-		<script src="scripts/directives/components/navigation.js"></script>
-		<script src="scripts/directives/components/social.js"></script>
-		<script src="scripts/directives/experiments/pixi.js"></script>
-		<script src="scripts/directives/experiments/phaser.js"></script>
-		<script src="scripts/directives/experiments/three.js"></script>
+		<script src="scripts/experiments/services/experiments.js"></script>
+		<script src="scripts/experiments/directives/phaser.js"></script>
+		<script src="scripts/experiments/directives/pixi.js"></script>
+		<script src="scripts/experiments/directives/three.js"></script>
 
-		<script src="scripts/controllers/home.js"></script>
-		<script src="scripts/controllers/post/all.js"></script>
-		<script src="scripts/controllers/post/show.js"></script>
-		<script src="scripts/controllers/experiments.js"></script>
+		<script src="scripts/wordpress/services/constants.js"></script>
+		<script src="scripts/wordpress/services/post.js"></script>
 
-		<script src="scripts/animations/vkview.js"></script>
+		<script src="scripts/vincentkammerercom/services/smicons.js"></script>
+		<script src="scripts/vincentkammerercom/services/constants.js"></script>
+
+		<script src="scripts/vincentkammerercom/directives/components/header.js"></script>
+		<script src="scripts/vincentkammerercom/directives/components/breadcrumb.js"></script>
+		<script src="scripts/vincentkammerercom/directives/components/navigation.js"></script>
+		<script src="scripts/vincentkammerercom/directives/components/social.js"></script>
+
+		<script src="scripts/vincentkammerercom/controllers/home.js"></script>
+		<script src="scripts/vincentkammerercom/controllers/post/all.js"></script>
+		<script src="scripts/vincentkammerercom/controllers/post/show.js"></script>
+		<script src="scripts/vincentkammerercom/controllers/experiments.js"></script>
+
+		<script src="scripts/vincentkammerercom/animations/vkview.js"></script>
 		<!-- endbuild -->
 
 		<script>

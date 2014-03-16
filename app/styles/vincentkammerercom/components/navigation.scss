@@ -1,0 +1,74 @@
+@import 'sass-bootstrap/lib/_variables';
+@import "../color";
+
+breadcrumb {
+	display:block;
+	.row {
+		padding:1em 0;
+	}
+	a {
+		color:black;
+		&:hover {
+			color:black;
+		}
+	}
+	.navtoggler {
+		text-align:right;
+		@media (min-width: $screen-sm-min) {
+			display:none;
+		}
+		a i {
+			transform:rotate(180deg);
+			font-size:2em;
+			margin:-0.25em 0;
+		}
+	}
+}
+
+navigation {
+	display:block;
+	@media (min-width: $screen-sm-min) {
+		padding-top:3.3em;
+	}
+	a {
+		color:black;
+		&:hover {
+			color:black;
+		}
+	}
+	nav {
+		position:absolute;
+		left:15px;
+		right:15px;
+		padding:0 0 20px;
+		a {
+			display:block;
+			padding:1em 0;
+			border-bottom:1px solid #999;
+			&.active {
+				font-weight:bold;
+			}
+		}
+	}
+}
+
+@media (max-width: $screen-sm-min) {
+	navigation nav {
+		-webkit-transition: opacity 2000ms;
+		opacity:0;
+	}
+
+	body.navshown {
+		breadcrumb {
+			.navtoggler a i {
+				transform:rotate(90deg);
+			}
+		}
+		nav {
+			-webkit-transition: opacity 2000ms;
+			opacity:1;
+		}
+	}
+}
+
+
