@@ -1,14 +1,29 @@
 <div class="row">
 	<div class="col-xs-12">
 		<div class="vkcontent">
-			<div class="btn-group btn-group-justified">
-					<a class="btn btn-default" ng-class="{active:$root.background==='pixi'}" ng-click="$root.background= ($root.background==='pixi') ? '' : 'pixi'">Pixi</a>
-					<a class="btn btn-default" ng-class="{active:experiment==='phaser'}" ng-click="experiment= (experiment!=='phaser') ? 'phaser' : ''">Phaser</a>
-					<a class="btn btn-default" ng-class="{active:experiment==='three'}" ng-click="experiment= (experiment!=='three') ? 'three' : ''">Three</a>
+			<h3>Experiments</h3>
+			<p>html5 has brought great new drawing APIs along, and I've been experimenting with a few libraries.</p>
+			<h4>Pixi.js</h4>
+			<p>
+				<a href="https://github.com/GoodBoyDigital/pixi.js" target="_blank">Pixi.js</a> is a 2D library that renders in the &lt;canvas&gt; element.
+				<a class="btn btn-default btn-block" ng-class="{active:$root.stage==='pixi'}" ng-click="$root.stage= ($root.stage==='pixi') ? '' : 'pixi'">See pixi.js demo</a>
+			</p>
+			<h4>Phaser.js</h4>
+			<p>
+				<a href="https://github.com/photonstorm/phaser" target="_blank">Phaser.js</a> is a full 2D gaming lib.
+				<a class="btn btn-default btn-block" ng-class="{active:$root.stage==='phaser'}" ng-click="$root.stage= ($root.stage==='phaser') ? '' : 'phaser'">Play phaser.js game</a>
+			</p>
+			<h4>Three.js</h4>
+			<p>
+				<a href="https://github.com/mrdoob/three.js" target="_blank">Three.js</a> is THE Webgl library.
+				<a class="btn btn-default btn-block" ng-class="{active:$root.stage==='three'}" ng-click="$root.stage= ($root.stage==='three') ? '' : 'three'">See three.js demo</a>
+			</p>
+			<div id="desktopstage" ng-if="!$root.isMobile && $root.stage">
+				<pixi ng-if="!$root.isMobile && $root.stage === 'pixi'"></pixi>
+				<phaser ng-if="!$root.isMobile && $root.stage === 'phaser'"></phaser>
+				<three ng-if="!$root.isMobile && $root.stage === 'three'"></three>
+				<div class="closeexperiment" ng-click="$root.stage=''"></div>
 			</div>
-			<br>
-			<phaser ng-if="experiment==='phaser'"></phaser>
-			<three ng-if="experiment==='three'"></three>
 		</div>
 	</div>
 </div>

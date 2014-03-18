@@ -1,3 +1,38 @@
+#mobilestage {
+	position:absolute;
+	top:0;
+	width:100%;
+	height:100%;
+}
+#desktopstage {
+	background:rgba(0,0,0,0.3);
+	padding:30px;
+	width:100%;
+	height:560px;
+	position:absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid white;
+	.closeexperiment {
+		width:30px;
+		height:30px;
+		position:absolute;
+		top:-5px;
+		right:-5px;
+		background:white;
+		border-radius:30px;
+		border:1px solid #CCC;
+		&:before {
+			display:block;
+			content: 'x';
+			font-size:20px;
+			width:100%;
+			text-align:center;
+			line-height:26px;
+		}
+	}
+}
+
 @import "pixi";
 @import "phaser";
 @import "three";

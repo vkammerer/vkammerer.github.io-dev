@@ -40,7 +40,7 @@ module.exports = function (grunt) {
 				tasks: ['newer:jshint:test', 'karma']
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+				files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
 				tasks: ['compass:server', 'autoprefixer']
 			},
 			gruntfile: {
@@ -273,7 +273,10 @@ module.exports = function (grunt) {
 						'*.{ico,png,txt}',
 						'.htaccess',
 						'*.html',
-						'views/{,*/}*.html',
+						'views/**/*.html',
+/* to be changed */
+						'scripts/experiments/iframes/**/*.js',
+/* / to be changed */
 						'bower_components/**/*',
 						'lib/**/*',
 						'images/{,*/}*.{webp,png}',

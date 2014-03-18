@@ -14,7 +14,7 @@ angular.module('experimentsApp')
 		){
 
 			return {
-				templateUrl: 'views/experiments/pixi.html',
+				templateUrl: 'views/experiments/directives/pixi.html',
 				restrict: 'E',
 				controller : function($scope){
 					keydownNames.init();
@@ -59,7 +59,7 @@ angular.module('experimentsApp')
 
 						if (!$window.VK.PIXI.vinces.length) {
 							for(var i = 0; i < 5; i++) {
-								$window.VK.PIXI.vinces[i] = new PIXI.Sprite.fromImage('/images/vince.png');
+								$window.VK.PIXI.vinces[i] = new PIXI.Sprite.fromImage('/images/experiments/vince.png');
 								$window.VK.PIXI.vinces[i].anchor.x = 0.5;
 								$window.VK.PIXI.vinces[i].anchor.y = 0.5;
 								$window.VK.PIXI.vinces[i].position.x = (actualWidth * (i * 0.2 + 0.1));

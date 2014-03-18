@@ -1,0 +1,42 @@
+@import 'sass-bootstrap/lib/_variables';
+@import "../color";
+
+.social {
+	margin:0;
+	ul {
+		margin:0;
+		padding:0;
+		list-style-type:none;
+		li {
+			display:inline-block;
+			margin:0;
+			padding:0 0.3em;
+			&:first-child {
+				padding:0 0.3em 0 0;
+			}
+			&:last-child {
+				padding:0 0 0 0.3em;
+			}
+			a {
+				display:block;
+				width:2.2em;
+				padding:0;
+				font-size:1.2em;
+				line-height:200%;
+				text-align:center;
+				text-decoration:none;
+				color:$main_dark;
+				background:white;
+				@extend .border_dark;
+				&:hover {
+					color:white;
+					background:$main_dark;
+				}
+				i {
+					&[class^="fa"] {
+					}
+				}
+			}
+		}
+	}
+}

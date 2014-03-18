@@ -67,5 +67,22 @@ angular.module('vincentkammerercomApp', [
 		$rootScope.constants = constants;
 		$rootScope.breadcrumb = '';
 
+		var isMobile = function(){
+			return $window.innerWidth < $rootScope.constants.DESKTOP_MIN_WIDTH;
+		};
+		var reloadOnIsMobile = function(){
+			var isLastMobile = isMobile();
+			if ($rootScope.isMobile !== isLastMobile) {
+				$rootScope.isMobile = isLastMobile;
+				$rootScope.$digest();
+			}
+		};
+		$rootScope.isMobile = isMobile();
+		$window.onresize = reloadOnIsMobile;
+
+
+
+
+
 	}
 ]);

@@ -12,7 +12,7 @@ angular.module('experimentsApp')
 		){
 
 			return {
-				templateUrl: 'views/experiments/three.html',
+				templateUrl: 'views/experiments/directives/three.html',
 				restrict: 'E',
 				controller : function($scope){
 					keydownNames.init();

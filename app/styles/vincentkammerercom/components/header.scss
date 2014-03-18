@@ -12,58 +12,57 @@ header {
 	@media (min-width: $screen-sm-min) {
 			text-align:left;
 	}
-	a {
+	span, a {
 		color:black;
 		font-size:1.2em;
 		display:inline-block;
 		line-height:100%;
-		padding:0 0 0.5em;
 		@media (min-width: $screen-sm-min) {
 			line-height:210%;
-			padding:0;
 		}
 	}
-	.social {
+	a {
+		padding:0 0 0.5em;
 		@media (min-width: $screen-sm-min) {
-			float:right;
-		}
-		margin:0;
-		ul {
-			margin:0;
 			padding:0;
-			list-style-type:none;
-			li {
-				display:inline-block;
-				margin:0;
-				padding:0 0.3em;
-				&:first-child {
-					padding:0 0.3em 0 0;
-				}
-				&:last-child {
-					padding:0 0 0 0.3em;
-				}
-				a {
-					display:block;
-					width:2.2em;
-					padding:0;
-					font-size:1.2em;
-					line-height:200%;
-					text-align:center;
-					text-decoration:none;
-					color:$main_dark;
-					background:white;
-					@extend .border_dark;
-					&:hover {
-						color:white;
-						background:$main_dark;
-					}
-					i {
-						&[class^="fa"] {
-						}
-					}
-				}
-			}
 		}
 	}
+	#love {
+		img {
+			width:19px;
+			margin:-1px -2px 0;
+			animation-duration: 8s;
+			animation-name: showsomelove;
+			animation-timing-function: ease;
+			animation-iteration-count: infinite;
+		}
+		@media (min-width: $screen-sm-min) {
+			text-align:right;
+		}
+	}
+
 }
 
+@keyframes showsomelove {
+	0% {
+		-webkit-transform: scale(0.88) translate3d(0,0,0);
+	}
+	20% {
+		-webkit-transform: scale(0.88);
+	}
+	21% {
+		-webkit-transform: scale(0.95) translate3d(0,-1px,0);
+	}
+	23% {
+		-webkit-transform: scale(0.90) translate3d(0,0,0);
+	}
+	25% {
+		-webkit-transform: scale(1) translate3d(0,-1px,0);
+	}
+	28% {
+		-webkit-transform: scale(0.88) translate3d(0,0,0);
+	}
+	100% {
+		-webkit-transform: scale(0.88);
+	}
+}
