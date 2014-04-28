@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 		// Watches files for changes and runs tasks based on the changed files
 		watch: {
 			js: {
-				files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+				files: ['<%= yeoman.app %>/scripts/**/*.js'],
 				tasks: ['newer:jshint:all'],
 				options: {
 					livereload: true
@@ -273,10 +273,7 @@ module.exports = function (grunt) {
 						'*.{ico,png,txt}',
 						'.htaccess',
 						'*.html',
-						'views/**/*.html',
-/* to be changed */
-						'scripts/experiments/iframes/**/*.js',
-/* / to be changed */
+						'experiments/**/*',
 						'bower_components/**/*',
 						'lib/**/*',
 						'images/{,*/}*.{webp,png}',
@@ -341,13 +338,12 @@ module.exports = function (grunt) {
 		// },
 		ngtemplates: {
 			dist: {
-				src: '<%= yeoman.app %>/views/**/*.html',
+				cwd: '<%= yeoman.app %>',
+				src: 'views/**/*.html',
 				dest: '.tmp/scripts/templateCache.js',
 				options: {
-					base: '<%= yeoman.app %>',
 					usemin: '<%= yeoman.dist %>/scripts/scripts.js',
-					module: '<%= yeoman.name %>',
-					url:    function(url) { return url.replace('app/', ''); }
+					module: '<%= yeoman.name %>'
 				}
 			}
 		},
@@ -393,7 +389,7 @@ module.exports = function (grunt) {
 		'clean:dist',
 		'useminPrepare',
 		'concurrent:dist',
-		'ngtemplates:dist',
+		'ngtemplates',
 		'autoprefixer',
 		'concat',
 		'ngmin',

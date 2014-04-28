@@ -20,39 +20,43 @@ angular.module('experimentsApp')
 				link: function(scope, element, attrs) {
 
 					scope.gameon = false;
-					scope.loading = 'Loading Phaser';
-					if ($rootScope.isMobile) {
-						document.documentElement.webkitRequestFullScreen();
-					}
+					scope.loading = true;
+
 					var iframe = document.getElementById('phaseriframe');
 
 					var messageIn = function(ev){
 						if(ev.origin === window.location.origin) {
 							var data = JSON.parse(ev.data);
-							if(data.action === 'started') {
+							if(data.state === 'ready') {
+								scope.loading = false;
+								scope.$apply();
 							} else {
 								console.log("Unknown message: "+ev.data);
 							}
 						}
 					}
 
-					window.addEventListener('message', messageIn, false);
-
 					var messageOut = function(data){
 						var message = JSON.stringify(data);
 						iframe.contentWindow.postMessage(message, window.location.origin);
 					}
 
-					scope.exitFullScreen = function(ev){
+					scope.enterFullScreen = function(){
+						document.documentElement.webkitRequestFullScreen();
+					}
+					scope.exitFullScreen = function(){
 						document.webkitExitFullscreen();
 					}
 					scope.startGame = function(){
-						$rootScope.stage = 'phaser';
 						scope.gameon = true;
-						messageOut({action: 'start'});
 						iframe.contentWindow.focus();
 					}
 
+					window.addEventListener('message', messageIn, false);
+
+					if ($rootScope.isMobile) {
+						document.documentElement.webkitRequestFullScreen();
+					}
 					scope.$on('keydownName', function(ev,name){
 						if (name === 'space'){
 							scope.startGame();

@@ -5,10 +5,18 @@
 		width:100%;
 		height:100%;
 		background:white;
-		.loading {
+		.loadstatus {
 			width:100%;
 			height:149px;
-			background:url('../images/vincentkammerercom/loading.gif') no-repeat center center;
+			text-align:center;
+			.loading {
+				height:100%;
+				background:url('../images/vincentkammerercom/loading.gif') no-repeat center center;
+			}
+			.loaded {
+				height:100%;
+				background:url('../images/vincentkammerercom/heart.svg') no-repeat center center;
+			}
 		}
 	}
 	iframe {

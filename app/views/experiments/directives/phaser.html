@@ -1,10 +1,12 @@
 <div id="phaser" ng-class="{gameon:gameon}">
 	<div id="phasercontrol">
-		Phaser is a 2D web gaming framework. In order to play this game, just hit the space key repeatedly.<br />
-		<div style="text-align:center;" ng-class="{loading:(loading !== 'Phaser loaded')}" ng-bind="loading"></div>
+		<div class="loadstatus">
+			<div class="loading" ng-show="loading">Loading game</div>
+			<div class="loaded" ng-show="!loading">Game loaded</div>
+		</div>
 		<a class="btn btn-default btn-block" ng-click="exitFullScreen()">Exit Fullscreen</a>
+		<a class="btn btn-default btn-block" ng-click="enterFullScreen()">Enter Fullscreen</a>
 		<a class="btn btn-default btn-block" ng-click="startGame()">Start Game</a>
-		<a class="btn btn-default btn-block" ng-click="gameon=false">Exit Game</a>
 	</div>
-	<iframe id="phaseriframe" ng-src="views/experiments/iframes/phaser.html"></iframe>
+	<iframe id="phaseriframe" ng-src="experiments/phaser/index.html"></iframe>
 </div>
